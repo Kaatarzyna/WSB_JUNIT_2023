@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Restauracje</title>
+</head>
+<body>
+
+<div>
+  <h2>Restauracje</h2>
+
+  <div th:each="restaurant : ${restaurants}">
+    <span th:text="${restaurant.getName()}"></span>
+    <span th:text="${restaurant.getCity}"></span>
+    <hr/>
+  </div>
+</div>
+
+</body>
+</html>

@@ -11,7 +11,10 @@ import wsb.junit.models.Restaurant;
 import wsb.junit.services.RestaurantService;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.springframework.http.converter.json.Jackson2ObjectMapperBuilder.json;
+
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(RestaurantRESTController.class)
@@ -34,6 +37,8 @@ class RestaurantRESTControllerTest {
         mockMvc.perform(get("/3"))
                 // asssert
                 .andExpect(status().isOk());
+        // tu trzeba by wrzucić prawidłowego jsona restauracji
+//                .andExpect(content().json("{\"body\":\"1\", \"name\":\"Restaurant\"}"));
     }
 
     @Test
