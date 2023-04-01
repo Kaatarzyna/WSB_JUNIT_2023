@@ -5,6 +5,8 @@ import wsb.junit.models.Restaurant;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 @Repository
 public class RestaurantRepository {
@@ -17,5 +19,9 @@ public class RestaurantRepository {
 
     public List<Restaurant> findAll() {
         return restaurants;
+    }
+
+    public Optional<Restaurant> find(Long id) {
+        return restaurants.stream().filter(r -> Objects.equals(r.getId(), id)).findFirst();
     }
 }
